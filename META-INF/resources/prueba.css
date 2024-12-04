@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Patua+One&display=swap');
+
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.body {
+  text-align: center;
+}
+
+.body,
+.container-1 {
+  background-image: url(img/photo-1708549566274-638eb2d2108b.jpeg);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  font-weight: bold;
+}
+nav h1 {
+    font-family: "Patua One", serif;
+    font-weight: 100;
+
+}
+
+.body h1 {
+  color: white;
+  font-size: 45px;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+.body a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: rgb(30, 153, 220);
+}
+
+.body p {
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.button1 {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  height: 50px;
+  width: 200px;
+  border-color: black;
+}
+
+.container-1 {
+  text-align: center;
+  color: white;
+  font-size: large;
+}
+
+.container p {
+  text-align: center;
+  font-weight: 700;
+}
+
+.button2 {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  border-color: transparent;
+}
+
+.button1:hover {
+  background-color: rgb(19, 167, 247);
+  color: white;
+  border-color: transparent;
+}
+.button2:hover {
+  background-color: rgb(19, 167, 247);
+  color: white;
+  border-color: transparent;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.1);
+}
+
+.content {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.image-gallery a {
+  text-decoration: none;
+  color: black;
+}
+.image-gallery a p {
+  display: inline-block; /* Permite aplicar márgenes y padding */
+  margin: 10px; /* Margen alrededor del párrafo */
+  padding: 5px; /* Espacio dentro del párrafo */
+  border: 1px solid black; /* Borde alrededor del párrafo */
+  border-radius: 4px; /* Bordes redondeados */
+  color: black;
+  letter-spacing: -0.4px;
+}
+
+.image-gallery span {
+  font-weight: bold;
+  font-size: larger;
+}
+
+/*GALERIA 2*/
+
+.image-gallery2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image-gallery2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-gallery2 img:hover {
+  transform: scale(1.1);
+}
+
+.content {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+#mostrar,
+#ocultar {
+  background-color: black;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  border-color: transparent;
+  display: block; /* Asegura que el botón sea un bloque */
+  margin: 20px auto; /* Centra el botón horizontalmente y añade margen vertical */
+}
+
+#mostrar2,
+#ocultar2 {
+  background-color: red;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  border-color: transparent;
+  display: block; /* Asegura que el botón sea un bloque */
+  margin: 20px auto; /* Centra el botón horizontalmente y añade margen vertical */
+}
+
+
+#mostrar2,
+#ocultar2 {
+  background-color: red;
+  font-size: large;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  border-color: transparent;
+  display: block; /* Asegura que el botón sea un bloque */
+  margin: 20px auto; /* Centra el botón horizontalmente y añade margen vertical */
+}
