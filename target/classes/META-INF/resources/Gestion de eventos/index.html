@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gestión de Eventos</title>
+
+    <style>
+        body {
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+
+            background-color: #f5f5f5;
+
+            color: #333;
+        }
+
+        h1 {
+
+            color: #5a5a5a;
+
+        }
+
+        .form-container, .search-container, .table-container {
+            width: 80%;
+
+            max-width: 600px;
+
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+
+            margin: 8px 0 4px;
+        }
+
+        input[type="text"], input[type="number"] {
+
+            width: 100%;
+
+            padding: 8px;
+
+            margin-bottom: 10px;
+
+            border-radius: 4px;
+
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+
+            background-color: #4CAF50;
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background-color: #45a049;
+
+        }
+
+        .table-container table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+        }
+
+        th, td {
+            padding: 10px;
+
+            border: 1px solid #ddd;
+
+            text-align: center;
+
+        }
+
+        th {
+            background-color: #4CAF50;
+
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+
+<h1>Gestión de Eventos</h1>
+
+<div class="form-container">
+    <h2>Registrar Evento</h2>
+    <label for="codigo">Código del Evento:</label>
+
+    <input type="text" id="codigo" placeholder="Ingrese código del evento">
+
+    <label for="persona">Persona a Cargo:</label>
+
+    <input type="text" id="persona" placeholder="Ingrese nombre de la persona a cargo">
+
+    <label for="coste">Coste del Evento:</label>
+
+    <input type="number" id="coste" placeholder="Ingrese coste del evento">
+
+    <button onclick="agregarEvento()">Agregar Evento</button>
+</div>
+
+<div class="search-container">
+    <h2>Buscar Eventos</h2>
+    <input type="text" id="search" placeholder="Buscar por código, persona o coste" onkeyup="buscarEvento()">
+</div>
+
+<div class="table-container">
+
+    <h2>Lista de Eventos</h2>
+
+    <table id="eventosTable">
+        <thead>
+            <tr>
+                <th>Código</th>
+
+                <th>Persona a Cargo</th>
+
+                <th>Coste</th>
+
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let eventos = [];
+
+    function agregarEvento() {
+        const codigo = document.getElementById('codigo').value.trim();
+
+        const persona = document.getElementById('persona').value.trim();
+
+        const coste = document.getElementById('coste').value.trim();
+
+        if (codigo && persona && coste) {
+
+            eventos.push({ codigo, persona, coste });
+
+            mostrarEventos();
+
+            limpiarFormulario();
+        } else {
+            alert("Por favor, complete todos los campos.");
+
+        }
+    }
+
+    function mostrarEventos() {
+
+        const tbody = document.querySelector('#eventosTable tbody');
+
+        tbody.innerHTML = '';
+
+        eventos.forEach((evento, index) => {
+
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${evento.codigo}</td>
+
+                <td>${evento.persona}</td>
+
+                <td>$${evento.coste}</td>
+                <td>
+                    <button onclick="eliminarEvento(${index})">Eliminar</button>
+                </td>
+            `;
+            tbody.appendChild(fila);
+        });
+    }
+
+    function limpiarFormulario() {
+        document.getElementById('codigo').value = '';
+
+        document.getElementById('persona').value = '';
+
+        document.getElementById('coste').value = '';
+    }
+
+    function eliminarEvento(index) {
+
+        eventos.splice(index, 1);
+
+        mostrarEventos();
+    }
+
+    function buscarEvento() {
+        const filtro = document.getElementById('search').value.toLowerCase();
+
+        const tbody = document.querySelector('#eventosTable tbody');
+
+        tbody.innerHTML = '';
+
+
+        const eventosFiltrados = eventos.filter(evento =>
+            evento.codigo.toLowerCase().includes(filtro) ||
+
+            evento.persona.toLowerCase().includes(filtro) ||
+
+            evento.coste.toLowerCase().includes(filtro)
+        );
+
+        eventosFiltrados.forEach((evento, index) => {
+
+            const fila = document.createElement('tr');
+
+            fila.innerHTML = `
+                <td>${evento.codigo}</td>
+
+                <td>${evento.persona}</td>
+
+                <td>$${evento.coste}</td>
+                <td>
+                    <button onclick="eliminarEvento(${index})">Eliminar</button>
+
+                </td>
+            `;
+            tbody.appendChild(fila);
+
+        });
+    }
+</script>
+
+</body>
+</html>
